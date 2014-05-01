@@ -1,6 +1,6 @@
 var sameres = require('./sameres');
 
-function determine(protein1, protein2, cut, kabsch) {
+function determine(protein1, protein2, cut, rmsdc) {
 	var L;
 	var m, n;
 
@@ -18,7 +18,7 @@ function determine(protein1, protein2, cut, kabsch) {
 			}
 
 			if (sameres(protein1[i], protein2[j])) {
-				if ((i === 0 || j === 0) && (rmsd = kabsch(protein1[i].atoms, protein2[j].atoms)) <= cut) {
+				if ((i === 0 || j === 0) && (rmsd = rmsdc(protein1[i].atoms, protein2[j].atoms)) <= cut) {
 					L[i][j] = {
 						len: 1,
 						acc: rmsd

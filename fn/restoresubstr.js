@@ -17,6 +17,7 @@ function restoresubstr(hash, i, j, L) {
   var chash;
   var sub;
   var len;
+  var prevlen;
 
   chash = copy(hash);
 
@@ -26,8 +27,10 @@ function restoresubstr(hash, i, j, L) {
   };
 
   len = 0;
+  prevlen = Infinity;
 
-  while(L[i] && L[i][j] && L[i][j].len) {
+  while(L[i] && L[i][j] && L[i][j].len && L[i][j].len < prevlen) {
+    prevlen = L[i][j].len;
     chash[i + ',' + j] = 1;
     sub.exp.push(i);
     sub.tgt.push(j);

@@ -73,4 +73,22 @@ describe('collect', function () {
 
 		done();
 	});
+
+	it('test4', function (done) {
+		var m;
+
+		m  = [
+			[{len: 0}, {len: 1, acc: 1}, {len: 0}        ],
+			[{len: 0}, {len: 0},         {len: 1, acc: 1}],
+			[{len: 0}, {len: 1, acc: 1}, {len: 0}        ]
+		];
+
+		assert.deepEqual(collect(m), [
+			{tgt: [1], exp: [2]},
+			{tgt: [2], exp: [1]},
+			{tgt: [1], exp: [0]}
+		]);
+
+		done();
+	});
 });
