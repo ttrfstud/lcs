@@ -39,7 +39,7 @@ describe('determine', function () {
 		done();
 	});
 
-	it.skip('test1', function (done) {
+	it('test2', function (done) {
 		// protein2 (tgt): abc
 		// protein1 (exp): bcb
 
@@ -113,7 +113,7 @@ describe('determine', function () {
 		done();
 	});
 
-	it('test3', function (done) {
+	it('test4', function (done) {
 		// protein2 (tgt): aaa
 		// protein1 (exp): aaa
 
@@ -150,7 +150,7 @@ describe('determine', function () {
 		done();
 	});
 
-	it('test4', function (done) {
+	it('test5', function (done) {
 		// protein2 (tgt): aaa
 		// protein1 (exp): aaa
 
@@ -187,7 +187,7 @@ describe('determine', function () {
 		done();
 	});
 
-	it('test5', function (done) {
+	it('test6', function (done) {
 		// protein2 (tgt): aa
 		// protein1 (exp): aaa
 
@@ -223,7 +223,7 @@ describe('determine', function () {
 		done();
 	});
 
-	it('test6', function (done) {
+	it('test7', function (done) {
 		// protein2 (tgt): aaa
 		// protein1 (exp): aa
 
