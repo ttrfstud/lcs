@@ -139,43 +139,6 @@ describe('determine', function () {
 			{name: 'a'}
 		];
 
-		res = determine(protein1, protein2, 2, kabsch);
-
-		assert.deepEqual(res, [
-			[{len: 1, acc: 1}, {len: 1, acc: 1}, {len: 1, acc: 1}],
-			[{len: 1, acc: 1}, {len: 2, acc: 2}, {len: 2, acc: 2}],
-			[{len: 1, acc: 1}, {len: 2, acc: 2}, {len: 1, acc: 1}]
-		]);
-
-		done();
-	});
-
-	it('test5', function (done) {
-		// protein2 (tgt): aaa
-		// protein1 (exp): aaa
-
-		var protein1;
-		var protein2;
-		var kabsch;
-
-		var res;
-
-		kabsch = function () {
-			return 1;
-		};
-
-		protein2 = [
-			{name: 'a'},
-			{name: 'a'},
-			{name: 'a'}
-		];
-
-		protein1 = [
-			{name: 'a'},
-			{name: 'a'},
-			{name: 'a'}
-		];
-
 		res = determine(protein1, protein2, 3, kabsch);
 
 		assert.deepEqual(res, [
@@ -187,7 +150,7 @@ describe('determine', function () {
 		done();
 	});
 
-	it('test6', function (done) {
+	it('test5', function (done) {
 		// protein2 (tgt): aa
 		// protein1 (exp): aaa
 
@@ -223,7 +186,7 @@ describe('determine', function () {
 		done();
 	});
 
-	it('test7', function (done) {
+	it('test6', function (done) {
 		// protein2 (tgt): aaa
 		// protein1 (exp): aa
 
