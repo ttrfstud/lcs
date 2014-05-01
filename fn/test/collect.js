@@ -51,7 +51,7 @@ describe('collect', function () {
 		done();
 	});
 
-	it('test2', function (done) {
+	it('test3', function (done) {
 		var m;
 
 		m = [
