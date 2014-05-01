@@ -39,12 +39,12 @@ function lcs(protein1, protein2, cut) {
 						len: L[i - 1][j - 1].len + 1,
 						acc: L[i - 1][j - 1].acc + rmsd
 					};
-				} else if (rmsd <= cut) {
+				} /* else if (rmsd <= cut) {
 					L[i][j] = {
 						len: 1,
 						acc: rmsd
 					};
-				} else {
+				} */ else {
 					L[i][j] = {
 						len: 0
 					};
@@ -61,22 +61,7 @@ function lcs(protein1, protein2, cut) {
 	// Now that all info is collected, we need to restore all non-zero-length conforming residual "substrings"
 
 	hash = {};
-	subs = [];
-
-	for (i = m - 1; i >= 0; i--) {
-		for (j = n - 1; j >= 0; j--) {
-			if (!hash[i + ',' + j] && L[i][j].len) {
-				res = restoresubstr(hash, L, i, j);
-				if (res.len > max) {
-					max = res.len;
-					rec = res.sub;
-				} else {
-					subs.push(res.sub);
-				}
-				hash = res.hash;
-			}
-		}
-	}
+	subs = collect(L, m, n, protein1, protein2);
 
 	return {
 		subs: subs,
