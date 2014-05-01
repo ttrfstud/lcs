@@ -1,0 +1,8 @@
+{
+  "name": "lcs",
+  "version": "0.0.0",
+  "description": "longest continuous segment algorithm",
+  "main": "index.js",
+  "author": "",
+  "license": "BSD-2-Clause"
+}
