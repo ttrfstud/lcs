@@ -1,7 +1,7 @@
 var assert = require('assert');
 var collect = require('../collect');
 
-describe('collect', function () {
+describe.skip('collect', function () {
 	it('test1', function (done) {
 		var m;
 

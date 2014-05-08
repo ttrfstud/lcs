@@ -1,9 +1,12 @@
-var sameres = require('./sameres');
+var addrmsd = require('./addrmsd');
+var sdist = require('./sdist');
 
-function determine(protein1, protein2, cut, rmsdc) {
+function determine(protein1, protein2, cut) {
 	var L;
 	var m, n;
 
+	var sdists;
+	var sdroot;
 	var rmsd;
 
 	m = protein1.length;
@@ -17,30 +20,35 @@ function determine(protein1, protein2, cut, rmsdc) {
 				L[i] = [];
 			}
 
-			if (sameres(protein1[i], protein2[j])) {
-				if ((i === 0 || j === 0) && (rmsd = rmsdc(protein1[i].atoms, protein2[j].atoms)) <= cut) {
+			sdists = sdist(protein1[i], protein2[j]);
+			sdroot = Math.sqrt(sdists);
+			
+			if ((i === 0 || j === 0)) {
+				if (sdroot <= cut) {
+					console.log(i, j, 'b1', sdists);
 					L[i][j] = {
 						len: 1,
-						acc: rmsd
+						acc: sdroot
 					};
-				} else if (L[i - 1][j - 1].acc + rmsd <= cut) {
-					L[i][j] = {
-						len: L[i - 1][j - 1].len + 1,
-						acc: L[i - 1][j - 1].acc + rmsd
-					};
-				}  else if (rmsd <= cut) {
-					L[i][j] = {
-						len: 1,
-						acc: rmsd
-					};
-				}  else {
+				} else {
+					console.log(i, j, 'b2', sdists);
 					L[i][j] = {
 						len: 0
 					};
 				}
-			} else {
+			} else if ( (rmsd = addrmsd(L[i - 1][j - 1], sdists)).acc <= cut) {
+					console.log(i, j, 'b3', sdists, rmsd.acc, rmsd.len);
+				L[i][j] = rmsd;
+			}  else if (sdroot <= cut) {
+				console.log(i, j, 'b4', sdists, rmsd);
 				L[i][j] = {
-					len: 0,
+					len: 1,
+					acc: sdroot
+				};
+			}  else {
+				console.log(i, j, 'b5', sdists);
+				L[i][j] = {
+					len: 0
 				};
 			}
 		}

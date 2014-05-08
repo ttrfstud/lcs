@@ -4,4 +4,7 @@
   "description": "longest continuous segment algorithm",
   "main": "index.js",
   "author": "",
+  "devDependencies": {
+    "mocha": "~1.18.2"
+  }
 }
