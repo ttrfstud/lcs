@@ -1,7 +1,7 @@
 var assert = require('assert');
 var sdist = require('../sdist');
 
-describe.skip('sdist', function () {
+describe('sdist', function () {
 
   it('test1', function (done) {
     var point1;

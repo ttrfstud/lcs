@@ -3,7 +3,6 @@ function sdist(point1, point2) {
   var dy;
   var dz;
 
-  console.log(point1, point2);
   dx = point1[0] - point2[0];
   dx = dx * dx;
 

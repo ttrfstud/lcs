@@ -1,7 +1,7 @@
 var assert = require('assert');
 var restoresubstr = require('../restoresubstr');
 
-describe.skip('', function () {
+describe('', function () {
 	it('test, to top', function (done) {
 		var m;
 		var hash;

@@ -25,28 +25,23 @@ function determine(protein1, protein2, cut) {
 			
 			if ((i === 0 || j === 0)) {
 				if (sdroot <= cut) {
-					console.log(i, j, 'b1', sdists);
 					L[i][j] = {
 						len: 1,
 						acc: sdroot
 					};
 				} else {
-					console.log(i, j, 'b2', sdists);
 					L[i][j] = {
 						len: 0
 					};
 				}
 			} else if ( (rmsd = addrmsd(L[i - 1][j - 1], sdists)).acc <= cut) {
-					console.log(i, j, 'b3', sdists, rmsd.acc, rmsd.len);
 				L[i][j] = rmsd;
 			}  else if (sdroot <= cut) {
-				console.log(i, j, 'b4', sdists, rmsd);
 				L[i][j] = {
 					len: 1,
 					acc: sdroot
 				};
 			}  else {
-				console.log(i, j, 'b5', sdists);
 				L[i][j] = {
 					len: 0
 				};

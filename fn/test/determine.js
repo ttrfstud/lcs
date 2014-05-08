@@ -73,8 +73,6 @@ describe('determine', function () {
 
 		res = determine(protein1, protein2, cutoff);
 
-		console.log(res);
-
 		assert.deepEqual(res, [
 			[{len: 0}, {len: 1, acc: 1}, {len: 0}        ],
 			[{len: 0}, {len: 0},         {len: 2, acc: 1}],

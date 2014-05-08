@@ -1,7 +1,7 @@
 var assert = require('assert');
 var countstats = require('../countstats');
 
-describe.skip('countstats', function () {
+describe('countstats', function () {
 	it('test1', function (done) {
 		var subs;
 		var res;

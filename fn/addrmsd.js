@@ -14,8 +14,6 @@ function addrmsd(prmsd, cval) {
 
   cval = cval + spval;
 
-  console.log(cval);
-
   clen = plen + 1;
 
   cval = cval / clen;
