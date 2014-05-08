@@ -1,19 +1,18 @@
 longest continuous segment algorithm
 ====================================
-an attempt to code lcs as described [here](http://predictioncenter.org/casp/casp7/public/doc/LCS_GDT.README). the signature of the only exported method is _(protein1, protein2, cut, rmsdc)_, where:
+an attempt to code lcs as described [here](http://predictioncenter.org/casp/casp7/public/doc/LCS_GDT.README). the signature of the only exported method is _(protein1, protein2, cut)_, where:
 
-  * proteinN, N in [1,2], is an array of protein residues, where each residue has the following format:
+  * proteinN, N in [1,2], is an array of protein CA atoms positions:
 
   ```
-  {
-  name: 'name of residue',
-  atoms: [[x1, y1, z1], ...]
-  }
+  [
+    [x1, y1, z1],
+    [x2, y1, z2],
+    ...
+  ]
   ```
 
   * cut is angstrom rmsd cut for lcs run
-
-  * rmsdc is a procedure that calculates rmsd of two lists of atoms. for example, kabsch algorithm could be used
 
 return value has the following format:
 
